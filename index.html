@@ -415,6 +415,9 @@ const auditItems = [
   ],
   faq:[
     {q:"5番の4つのポイントを教えて",a:"①社長の約束（1000万人の学び・教育）、②根拠（社会背景：18兆円社会損失／AI共生社会）、③必要性（ゲームチェンジャーは教育）、④社会変革の姿（1000万人の学習者）の4つです。それぞれを自分の言葉で説明できるようにしておきましょう。"}
+  ],
+  references:[
+    {label:"4/1カンファレンス資料", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.01_Structure2030カンファレンス", type:"path"}
   ]
 },
 {
@@ -449,6 +452,11 @@ const auditItems = [
   ],
   faq:[
     {q:"要約書に書き込みがなくても大丈夫ですか？",a:"書き込みがなくても両方携帯していればBの水準にはなりますが、自分の言葉での書き込み（ペン入れ）があるとAの水準を目指せます。マーカー線だけは書き込みとして扱われない点にご注意ください。"}
+  ],
+  references:[
+    {label:"構造要約書（PDF）", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.25_26_スマートライフ学入門\\当日教材_資料\\受講生手元に用意\\基本解説）SLSSLDの定義と構造(要約).pdf", type:"path"},
+    {label:"pcd2.0映像（4/1カンファレンス冒頭・入職式ダイジェスト）", value:"https://api01-platform.stream.co.jp/apiservice/plt3/NTczNA%3d%3d%23ODY1%23280%23168%230%2335E6A0D8A400%23MDoyOjc6YTpmOzEwOzEwOzEw%23", type:"url"},
+    {label:"pcd2.0映像（2025年12月4日説明会 通し映像）", value:"https://api01-platform.stream.co.jp/apiservice/plt3/NTczNA%3d%3d%23ODY0%23280%23168%230%2335E6A0D8A400%23MDoyOjc6YTpmOzEwOzEwOzEw%23", type:"url"}
   ]
 },
 {
@@ -483,6 +491,10 @@ const auditItems = [
   ],
   faq:[
     {q:"付箋を貼るだけでも評価されますか？",a:"付箋を貼ること自体は「大切にしている様子」の一部として見られますが、評価の中心は自分の言葉による書き込みです。付箋と合わせて、自分なりの理解や気づきをペンで書き込んでおくとよいでしょう。"}
+  ],
+  references:[
+    {label:"スマートライフ学 スマートライフデザイン学（基本構造要約）", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.25_26_スマートライフ学入門\\当日教材_資料\\受講生手元に用意\\基本解説）SLSSLDの定義と構造(要約).pdf", type:"path"},
+    {label:"The necessity of SmartLife Literacy（必要論）", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.25_26_スマートライフ学入門\\当日教材_資料\\受講生手元に用意\\SLS_SLD必要論）AI共生社会のSLS学必要論(要約).pdf", type:"path"}
   ]
 },
 {
@@ -775,6 +787,7 @@ function generateAnswer(question){
   html += sectionHTML('結論', `<p>${item.title}（項目${item.id}）についてご説明します。</p><p style="margin-top:6px">${item.summary}</p>`);
   html += sectionHTML('必要なもの・行動', listHTML(item.requiredItems));
   if(item.preparation.length) html += sectionHTML('具体的な対策方法', listHTML(item.preparation));
+  if(item.references && item.references.length) html += sectionHTML('参考資料', referencesHTML(item.references));
   if(item.cautions.length) html += sectionHTML('注意点', listHTML(item.cautions));
   if(item.id===8) html += mustBoxHTML();
   html += sectionHTML('関連する正式ルール', criteriaBoxHTML(item));
@@ -793,6 +806,14 @@ function criteriaBoxHTML(item){
 }
 function mustBoxHTML(){
   return `<div class="must-box">⚠ 正式ルール：M410・410・525のうち1つでも勉強跡がない場合は、ほかの書簡の状態にかかわらず、正式な評価基準上はD評価になります。マーカー線だけでは勉強跡に含まれず、自分の言葉によるペンでの書き込みが必要です。</div>`;
+}
+function referencesHTML(refs){
+  return refs.map(r=>{
+    if(r.type==='url'){
+      return `<div style="margin-bottom:6px;padding:8px 10px;background:#f0f6ff;border-radius:6px;font-size:11px"><strong>${escapeHTML(r.label)}</strong><br><a href="${escapeHTML(r.value)}" target="_blank" rel="noopener noreferrer" style="color:var(--c01);word-break:break-all">${escapeHTML(r.value)} ↗</a></div>`;
+    }
+    return `<div style="margin-bottom:6px;padding:8px 10px;background:#f8faff;border-radius:6px;font-size:11px"><strong>${escapeHTML(r.label)}</strong><br><span style="color:var(--gray);word-break:break-all;font-family:'DM Mono',monospace;font-size:9px">${escapeHTML(r.value)}</span></div>`;
+  }).join('') + `<div style="font-size:9px;color:var(--gray);margin-top:4px">※社内共有フォルダのパスは、社内ネットワークに接続した状態でアクセスしてください。</div>`;
 }
 
 function buildWritingDefAnswer(){
@@ -962,6 +983,18 @@ function openModalById(id){
     item.faq.forEach(f=>{
       body += `<div style="margin-bottom:10px"><div style="font-weight:800;color:var(--navy);margin-bottom:3px">Q. ${f.q}</div><div style="color:#4a6080">A. ${f.a}</div></div>`;
     });
+    body += `</div></div>`;
+  }
+  if(item.references && item.references.length){
+    body += `<div class="modal-sec"><div class="modal-sec-title">// 参考資料</div><div class="modal-sec-body">`;
+    item.references.forEach(r=>{
+      if(r.type==='url'){
+        body += `<div style="margin-bottom:8px;padding:10px 12px;background:#f0f6ff;border-radius:8px;font-size:12px"><div style="font-weight:700;color:var(--navy);margin-bottom:4px">${escapeHTML(r.label)}</div><a href="${escapeHTML(r.value)}" target="_blank" rel="noopener noreferrer" style="color:var(--c01);word-break:break-all">${escapeHTML(r.value)} ↗</a></div>`;
+      }else{
+        body += `<div style="margin-bottom:8px;padding:10px 12px;background:#f8faff;border-radius:8px;font-size:12px"><div style="font-weight:700;color:var(--navy);margin-bottom:4px">${escapeHTML(r.label)}</div><div style="color:var(--gray);word-break:break-all;font-family:'DM Mono',monospace;font-size:10px">${escapeHTML(r.value)}</div></div>`;
+      }
+    });
+    body += `<div style="font-size:10px;color:var(--gray);margin-top:6px">※社内共有フォルダのパスは、社内ネットワークに接続した状態でファイルエクスプローラー等から直接アクセスしてください。</div>`;
     body += `</div></div>`;
   }
 
