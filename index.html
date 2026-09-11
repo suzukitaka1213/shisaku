@@ -2,1025 +2,539 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,viewport-fit=cover"/>
-<title>品質監査コーチ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>セミナー総合案内ポータル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Barlow:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0a1628;
-  --c01:#4a9eff; --c02:#10b97a; --c03:#f59e0b; --c04:#ef4444;
-  --c05:#a855f7; --c06:#84cc16; --c07:#f97316; --c08:#14b8a6;
-  --c09:#64748b; --c10:#ec4899; --c11:#0ea5e9; --c12:#8b5cf6;
-  --border:#e2e8f0; --bg:#f4f4f4; --gray:#8a9ab0;
+:root {
+  --bg: #fdfbf7;
+  --card-bg: #ffffff;
+  --border: #f0eada;
+  --text: #4a403a;
+  --text-muted: #8c827a;
+  --mint: #36b37e;
+  --mint-soft: #e3fcef;
+  --peach: #ff7452;
+  --peach-soft: #ffebe6;
+  --yellow: #ffab00;
+  --yellow-soft: #fffae6;
+  --shadow: 0 4px 16px rgba(140, 130, 122, 0.08);
+  --shadow-hover: 0 8px 24px rgba(140, 130, 122, 0.15);
+  --radius: 18px;
 }
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--navy);min-height:100vh;overflow-x:hidden;padding-top:env(safe-area-inset-top)}
-
-/* HEADER */
-header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:3px solid var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 20px;min-height:64px;gap:12px;flex-wrap:wrap}
-.hd-left{display:flex;align-items:center;gap:12px}
-.hd-logo{font-family:'Barlow Condensed',sans-serif;font-size:clamp(15px,3vw,22px);font-weight:900;font-style:italic;color:var(--navy);letter-spacing:.02em}
-.hd-sub{font-size:9px;color:var(--gray);letter-spacing:.05em;margin-top:2px}
-.hd-right{display:flex;gap:8px}
-.hd-btn{padding:7px 14px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.05em;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--navy);transition:all .2s;font-family:'Barlow',sans-serif}
-.hd-btn:hover{border-color:var(--c01);color:var(--c01)}
-.hd-btn.danger:hover{border-color:var(--c04);color:var(--c04)}
-
-/* HERO */
-.hero{background:var(--navy);padding:40px 24px 40px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:180px}
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
-.hero-stripe{position:absolute;pointer-events:none}
-.hs1{top:-20%;right:32%;width:70px;height:150%;background:#e63022;opacity:.7;transform:rotate(-12deg)}
-.hs2{top:-20%;right:24%;width:12px;height:150%;background:#a3e635;opacity:.8;transform:rotate(-12deg)}
-.hs3{top:-20%;right:18%;width:36px;height:150%;background:#1a1a1a;opacity:.6;transform:rotate(-12deg)}
-.hs4{top:-20%;left:18%;width:6px;height:150%;background:#4a9eff;opacity:.5;transform:rotate(-12deg)}
-.hero-title{position:relative;z-index:1;font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,6vw,56px);font-weight:900;font-style:italic;color:#fff;letter-spacing:-.01em;line-height:1}
-.hero-sub{position:relative;z-index:1;margin-top:12px;font-size:13px;color:rgba(255,255,255,.6);font-weight:500}
-.hero-notice{position:relative;z-index:1;margin-top:16px;max-width:600px;font-size:10px;color:rgba(255,255,255,.4);line-height:1.7;border-top:1px solid rgba(255,255,255,.15);padding-top:12px}
-
-main{padding:20px;display:flex;flex-direction:column;gap:20px;max-width:1000px;margin:0 auto;width:100%}
-
-/* CONSULT CARD */
-.consult-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-.consult-hdr{padding:16px 20px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#f8faff,#fff);display:flex;align-items:center;gap:10px}
-.consult-icon{font-size:20px}
-.consult-title{font-size:15px;font-weight:900;color:var(--navy)}
-.consult-sub{font-size:9px;color:var(--gray);letter-spacing:.05em;margin-top:2px}
-.consult-body{padding:18px}
-#question-input{width:100%;min-height:80px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:'Barlow',sans-serif;color:var(--navy);outline:none;resize:vertical;transition:border-color .2s;line-height:1.6}
-#question-input:focus{border-color:var(--c01)}
-.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip{padding:6px 12px;border-radius:20px;background:#f0f6ff;color:var(--c01);font-size:11px;font-weight:700;cursor:pointer;border:1px solid #d8eeff;transition:all .2s}
-.chip:hover{background:var(--c01);color:#fff}
-.submit-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap}
-.submit-hint{font-size:10px;color:var(--gray)}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;font-size:12px;font-weight:800;letter-spacing:.03em;cursor:pointer;border:none;font-family:'Barlow',sans-serif;transition:all .2s}
-.btn-primary{background:var(--navy);color:#fff}
-.btn-primary:hover{background:#1a3050}
-.btn-outline{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--navy)}
-.btn-sm{padding:6px 12px;font-size:10px}
-
-/* CHAT HISTORY */
-.chat-area{display:flex;flex-direction:column;gap:14px;margin-top:16px}
-.chat-msg{display:flex;flex-direction:column;gap:6px}
-.chat-q{align-self:flex-end;max-width:85%;background:var(--navy);color:#fff;padding:12px 16px;border-radius:14px 14px 4px 14px;font-size:13px;line-height:1.6}
-.chat-a{align-self:flex-start;max-width:92%;background:#f8faff;border:1px solid var(--border);padding:16px 18px;border-radius:4px 14px 14px 14px;font-size:13px;line-height:1.85;color:var(--navy)}
-.chat-a h4{font-size:12px;font-weight:900;color:var(--c01);margin:12px 0 6px;letter-spacing:.02em}
-.chat-a h4:first-child{margin-top:0}
-.chat-a ul{margin:4px 0 4px 18px}
-.chat-a li{margin-bottom:3px}
-.chat-a .rule-box{background:#fff7ed;border-left:3px solid var(--c07);padding:10px 12px;border-radius:6px;margin:8px 0;font-size:12px}
-.chat-a .must-box{background:#fef2f2;border-left:3px solid var(--c04);padding:10px 12px;border-radius:6px;margin:8px 0;font-size:12px;font-weight:700;color:#991b1b}
-.chat-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.chat-time{font-size:9px;color:var(--gray);margin-top:4px}
-
-/* ITEM GRID */
-.section-hdr2{display:flex;align-items:center;gap:10px;margin-bottom:2px}
-.section-hdr2 .eyebrow{font-size:9px;font-weight:700;letter-spacing:.25em;color:var(--c01);text-transform:uppercase;font-family:'DM Mono',monospace}
-.section-title2{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:var(--navy);letter-spacing:-.01em}
-.item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:14px}
-.item-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);display:flex;flex-direction:column;border-top:4px solid var(--accent)}
-.item-card-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:8px}
-.item-num{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;font-style:italic;color:var(--accent);line-height:1}
-.item-title{font-size:14px;font-weight:900;color:var(--navy);line-height:1.4}
-.item-summary{font-size:11px;color:var(--gray);line-height:1.6;flex:1}
-.item-card-footer{padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:6px;background:#fafbff}
-
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(10,22,40,.6);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:30px 16px;overflow-y:auto}
-.modal-overlay.open{display:flex}
-.modal-box{background:#fff;border-radius:16px;max-width:680px;width:100%;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);margin-bottom:30px}
-.modal-hdr{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,#f8faff,#fff)}
-.modal-num{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;font-style:italic;color:var(--accent-modal,#4a9eff)}
-.modal-title{font-size:18px;font-weight:900;color:var(--navy);margin-top:2px}
-.modal-close{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--gray);font-size:18px;background:#f4f4f4;flex-shrink:0}
-.modal-close:hover{background:var(--border)}
-.modal-body{padding:20px 24px;max-height:70vh;overflow-y:auto}
-.modal-sec{margin-bottom:18px}
-.modal-sec:last-child{margin-bottom:0}
-.modal-sec-title{font-size:11px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--c01);font-family:'DM Mono',monospace;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.modal-sec-body{font-size:13px;line-height:1.8;color:var(--navy)}
-.modal-sec-body ul{margin-left:18px}
-.modal-sec-body li{margin-bottom:4px}
-.modal-must{background:#fef2f2;border-left:3px solid var(--c04);padding:12px 14px;border-radius:6px;font-size:12px;font-weight:700;color:#991b1b;line-height:1.7}
-.modal-footer{padding:16px 24px;border-top:1px solid var(--border);background:#fafbff}
-
-/* NOTICE */
-.notice-box{background:#fffbeb;border:1.5px solid #fde68a;border-radius:10px;padding:12px 16px;font-size:11px;color:#92400e;line-height:1.7;display:flex;gap:8px;align-items:flex-start}
-
-/* FOOTER */
-footer{background:var(--navy);padding:24px 24px;display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.ft-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;font-style:italic;color:#fff}
-.ft-text{font-size:10px;color:rgba(255,255,255,.4);line-height:1.8}
-
-/* SCROLL TOP */
-.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:none;place-items:center;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:200;font-size:18px}
-.scroll-top.show{display:grid}
-
-@media(max-width:480px){
-  main{padding:12px}
-  header{padding:0 14px}
-  .modal-body{padding:16px 18px}
-  .modal-hdr{padding:16px 18px}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 24px 16px;
+  min-height: 100vh;
 }
-@media print{
-  header,.hero,.consult-card .submit-row,.chip-row,.chat-actions,.item-card-footer,.scroll-top,footer,.notice-box{display:none!important}
-  .chat-a{border:1px solid #999;box-shadow:none}
+.container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+/* HEADER HERO */
+.hero {
+  background: linear-gradient(135deg, #fff3e0 0%, #e8f5e9 100%);
+  border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  box-shadow: var(--shadow);
 }
+.hero-title { font-size: 22px; font-weight: 900; color: #3d352e; }
+.hero-title span { font-size: 12px; display: block; color: var(--peach); font-weight: 800; letter-spacing: 1px; }
+
+.hero-actions { display: flex; align-items: center; gap: 12px; }
+.stat-pills { display: flex; gap: 8px; }
+.pill-card {
+  background: #ffffff; border: 2px solid var(--border); border-radius: 14px;
+  padding: 6px 14px; text-align: center;
+}
+.pill-card .num { font-size: 20px; font-weight: 900; color: var(--mint); line-height: 1; }
+.pill-card .lbl { font-size: 10px; color: var(--text-muted); font-weight: 700; }
+
+.btn-add-seminar {
+  background: var(--peach); color: #fff; border: none; border-radius: 14px;
+  padding: 12px 20px; font-size: 13px; font-weight: 900; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 116, 82, 0.3); transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-add-seminar:hover { background: #e05d3d; transform: translateY(-2px); }
+
+/* SEARCH & TABS */
+.control-panel {
+  background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 14px 18px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+.search-input {
+  flex: 1; min-width: 240px; padding: 10px 16px; border: 2px solid var(--border);
+  border-radius: 12px; outline: none; font-size: 14px; background: #fff8f0; font-family: inherit; color: var(--text);
+}
+.search-input:focus { border-color: var(--peach); background: #fff; }
+
+.tab-group { display: flex; gap: 6px; align-items: center; }
+.tab-btn {
+  padding: 8px 14px; border-radius: 12px; border: 2px solid var(--border);
+  background: #fff; font-size: 12px; font-weight: 800; cursor: pointer; color: var(--text-muted); transition: all 0.2s;
+}
+.tab-btn.active, .tab-btn:hover { background: var(--peach-soft); color: var(--peach); border-color: var(--peach); }
+
+/* GRID & CARDS */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+.card {
+  background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s; position: relative;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+.card-hdr { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.card-title { font-size: 17px; font-weight: 900; line-height: 1.3; color: #2d251e; }
+
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+.badge-active { background: var(--mint-soft); color: var(--mint); }
+.badge-prep { background: var(--yellow-soft); color: #b78103; }
+.badge-plan { background: #f0f0f0; color: #777; }
+
+.info-table { background: #faf8f5; border-radius: 12px; padding: 10px 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
+.info-item span { color: var(--text-muted); font-size: 10px; display: block; font-weight: 700; }
+.info-item strong { font-size: 12px; color: var(--text); }
+
+.ideal-box {
+  background: #fff3e0; border-left: 4px solid var(--peach);
+  border-radius: 0 10px 10px 0; padding: 10px; font-size: 12px; color: #5c3810; line-height: 1.4;
+}
+.ideal-box strong { color: var(--peach); display: block; margin-bottom: 2px; font-size: 11px; }
+
+.card-ftr { margin-top: auto; padding-top: 10px; display: flex; gap: 8px; align-items: center; justify-content: space-between; border-top: 1px dashed var(--border); }
+.btn-group-left { display: flex; gap: 8px; align-items: center; }
+
+.btn-sec { font-size: 12px; font-weight: 800; color: var(--text-muted); cursor: pointer; background: none; border: none; padding: 4px; }
+.btn-sec:hover { color: var(--peach); }
+
+.btn-reserve {
+  background: var(--mint-soft); color: var(--mint); border: 1.5px solid var(--mint);
+  border-radius: 10px; padding: 6px 12px; font-size: 12px; font-weight: 800; cursor: pointer; transition: all 0.2s;
+}
+.btn-reserve:hover { background: var(--mint); color: #fff; }
+
+.btn-primary {
+  background: var(--peach); color: #fff; border: none; border-radius: 10px;
+  padding: 7px 14px; font-size: 12px; font-weight: 800; text-decoration: none;
+  box-shadow: 0 3px 8px rgba(255, 116, 82, 0.25); transition: all 0.2s;
+}
+.btn-primary:hover { background: #e05d3d; }
+
+/* MODALS */
+.modal-bg { position: fixed; inset: 0; background: rgba(74, 64, 58, 0.35); backdrop-filter: blur(4px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 16px; }
+.modal-bg.open { display: flex; }
+.modal { background: #fff; border: 2px solid var(--border); border-radius: 24px; width: min(540px, 100%); max-height: 88vh; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 16px 40px rgba(0,0,0,0.15); }
+
+.modal-hdr { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 12px; }
+.modal-hdr h2 { font-size: 18px; font-weight: 900; color: #2d251e; }
+.modal-close { cursor: pointer; font-size: 20px; font-weight: 900; color: var(--text-muted); }
+
+.form-grid { display: flex; flex-direction: column; gap: 12px; font-size: 13px; }
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group label { font-size: 11px; font-weight: 800; color: var(--text-muted); }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 9px 12px; border: 2px solid var(--border); border-radius: 10px;
+  font-size: 13px; font-family: inherit; outline: none; background: #faf8f5;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--peach); background: #fff; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-submit {
+  background: var(--peach); color: #fff; border: none; border-radius: 12px;
+  padding: 12px; font-size: 14px; font-weight: 900; cursor: pointer; width: 100%;
+  box-shadow: 0 4px 12px rgba(255, 116, 82, 0.3); margin-top: 8px;
+}
+.btn-submit:hover { background: #e05d3d; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="hd-left">
+<div class="container">
+  <!-- HEADER HERO -->
+  <div class="hero">
     <div>
-      <div class="hd-logo">品質監査コーチ</div>
-      <div class="hd-sub">12の品質項目を学び、日々の実践を相談できるコーチングツール</div>
-    </div>
-  </div>
-  <div class="hd-right">
-    <button class="hd-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠 ホーム</button>
-    <button class="hd-btn danger" onclick="clearHistory()">🗑 履歴を初期化</button>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-stripe hs1"></div><div class="hero-stripe hs2"></div><div class="hero-stripe hs3"></div><div class="hero-stripe hs4"></div>
-  <div class="hero-title">品質監査コーチ</div>
-  <div class="hero-sub">12の品質項目を学び、日々の実践を相談できるコーチングツール</div>
-  <div class="hero-notice">このツールは、品質監査の理解と日々の実践を支援するためのものです。監査結果の判定や、個人の自動評価は行いません。判断に迷う場合は、必ず監査担当者・責任者にご確認ください。</div>
-</section>
-
-<main>
-
-<!-- 相談エリア -->
-<div class="consult-card" id="consult-area">
-  <div class="consult-hdr">
-    <div class="consult-icon">💬</div>
-    <div><div class="consult-title">自由に質問する</div><div class="consult-sub">気になることを、なんでも聞いてみましょう</div></div>
-  </div>
-  <div class="consult-body">
-    <textarea id="question-input" placeholder="例：8番は何が必要？　9番の媒体を教えて　11番の対策方法は？&#10;（Enterで送信・Shift+Enterで改行）"></textarea>
-    <div class="chip-row" id="chip-row"></div>
-    <div class="submit-row">
-      <div class="submit-hint">💡 項目番号や資料名を含めると、より具体的に回答できます</div>
-      <div style="display:flex;gap:8px">
-        <button class="btn btn-outline" onclick="document.getElementById('question-input').value=''">入力し直す</button>
-        <button class="btn btn-primary" id="btn-ask">質問する ↗</button>
+      <div class="hero-title">
+        <span>STAFF PORTAL</span>
+        🌿 セミナー総合案内ポータル
       </div>
     </div>
-    <div class="chat-area" id="chat-area"></div>
-  </div>
-</div>
-
-<!-- 項目一覧 -->
-<div>
-  <div class="section-hdr2">
-    <div>
-      <div class="eyebrow">// Learn From 12 Items</div>
-      <div class="section-title2">12項目から学ぶ</div>
+    <div class="hero-actions">
+      <div class="stat-pills">
+        <div class="pill-card"><div class="num" id="st-act">0</div><div class="lbl">案内中</div></div>
+        <div class="pill-card"><div class="num" id="st-tot">0</div><div class="lbl">全件</div></div>
+      </div>
+      <button class="btn-add-seminar" onclick="openAddSeminarModal()">
+        <span>＋</span> 新規セミナー登録
+      </button>
     </div>
   </div>
-  <div class="item-grid" id="item-grid"></div>
+
+  <!-- CONTROL PANEL -->
+  <div class="control-panel">
+    <input type="text" id="searchInput" class="search-input" placeholder="セミナー名・内容・案内対象でリアルタイム検索...">
+    <div class="tab-group">
+      <button class="tab-btn active" onclick="setFilter('all', this)">すべて</button>
+      <button class="tab-btn" onclick="setFilter('案内中', this)">案内中</button>
+      <button class="tab-btn" onclick="setFilter('準備中', this)">準備中</button>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid" id="grid"></div>
 </div>
 
-</main>
-
-<!-- モーダル -->
-<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal-box">
+<!-- モーダル1：詳細表示 -->
+<div class="modal-bg" id="detailModal" onclick="if(event.target===this)closeModal('detailModal')">
+  <div class="modal">
     <div class="modal-hdr">
-      <div>
-        <div class="modal-num" id="modal-num"></div>
-        <div class="modal-title" id="modal-title"></div>
-      </div>
-      <div class="modal-close" onclick="closeModal()">✕</div>
+      <h2 id="m-title">セミナー詳細</h2>
+      <span class="modal-close" onclick="closeModal('detailModal')">✕</span>
     </div>
-    <div class="modal-body" id="modal-body"></div>
-    <div class="modal-footer">
-      <button class="btn btn-primary" style="width:100%" id="modal-consult-btn">この項目について相談する 💬</button>
+    <div id="m-body" style="font-size:13px;line-height:1.6;"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+      <button class="btn-reserve" id="m-reserve-btn">📝 参加受付をする</button>
+      <div id="m-url"></div>
     </div>
   </div>
 </div>
 
-<div class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
-
-<footer>
-  <div class="ft-title">品質監査コーチ</div>
-  <div class="ft-text">
-    このツールは、品質監査項目についての理解と、日々の実践・準備のサポートを目的としたコーチングツールです。監査員による評価に代わるものではなく、利用者やスタッフを自動採点・自動判定する機能もありません。<br>
-    最終的な判断・評価は、必ず正式な監査資料および監査担当者・責任者にご確認ください。<br><br>
-    2026年8月版の監査資料をもとに作成 ｜ Version 1.0 ｜ 会話履歴はこの端末のブラウザ内にのみ保存されます
+<!-- モーダル2：参加受付（枠確保）フォーム -->
+<div class="modal-bg" id="reserveModal" onclick="if(event.target===this)closeModal('reserveModal')">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h2>📝 参加受付・枠確保</h2>
+      <span class="modal-close" onclick="closeModal('reserveModal')">✕</span>
+    </div>
+    <form class="form-grid" id="reserveForm" onsubmit="submitReserve(event)">
+      <div class="form-group">
+        <label>対象セミナー</label>
+        <input type="text" id="res-seminar" readonly style="background:#f0eada;font-weight:bold;">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>区分</label>
+          <select id="res-type">
+            <option value="会員">会員番号あり</option>
+            <option value="一般">一般（番号なし）</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>会員番号（一般の場合は「一般」と入力）</label>
+          <input type="text" id="res-member-id" placeholder="例: 10001" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>苗字</label>
+          <input type="text" id="res-last-name" placeholder="例: 山田" required>
+        </div>
+        <div class="form-group">
+          <label>名前</label>
+          <input type="text" id="res-first-name" placeholder="例: 太郎" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>属性</label>
+          <select id="res-relation">
+            <option value="本人">本人</option>
+            <option value="家族">家族</option>
+            <option value="知り合い">知り合い</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ステータス</label>
+          <select id="res-status">
+            <option value="確定">確定</option>
+            <option value="仮予約">仮予約</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>備考・連絡事項</label>
+        <input type="text" id="res-note" placeholder="例: ◯◯様の紹介">
+      </div>
+      <button type="submit" class="btn-submit">枠を確保する 登録</button>
+    </form>
   </div>
-</footer>
+</div>
+
+<!-- モーダル3：新規セミナー登録フォーム -->
+<div class="modal-bg" id="addSeminarModal" onclick="if(event.target===this)closeModal('addSeminarModal')">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h2>✨ 新規セミナー登録</h2>
+      <span class="modal-close" onclick="closeModal('addSeminarModal')">✕</span>
+    </div>
+    <form class="form-grid" id="addSeminarForm" onsubmit="submitNewSeminar(event)">
+      <div class="form-group">
+        <label>セミナー名</label>
+        <input type="text" id="add-name" placeholder="例: Web集客基礎セミナー" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>開催日</label>
+          <input type="text" id="add-date" placeholder="例: 2026/10/15" required>
+        </div>
+        <div class="form-group">
+          <label>対象者</label>
+          <select id="add-target">
+            <option value="新規顧客">新規顧客</option>
+            <option value="既存顧客">既存顧客</option>
+            <option value="全顧客">全顧客</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>1次締め切り</label>
+          <input type="text" id="add-dl1" placeholder="例: 2026/09/30">
+        </div>
+        <div class="form-group">
+          <label>2次締め切り</label>
+          <input type="text" id="add-dl2" placeholder="例: 2026/10/10">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>セミナー内容（概要）</label>
+        <textarea id="add-content" rows="3" placeholder="セミナーの概要やプログラム内容を入力..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>求める参加者像（提案のポイント）</label>
+        <textarea id="add-ideal" rows="2" placeholder="どんなお悩みを持っているお客様に案内すべきか..." required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>ステータス</label>
+          <select id="add-status">
+            <option value="案内中">案内中</option>
+            <option value="準備中">準備中</option>
+            <option value="企画中">企画中</option>
+            <option value="非表示">非表示（画面に出さない）</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>詳細・案内URL（任意）</label>
+          <input type="url" id="add-url" placeholder="https://example.com">
+        </div>
+      </div>
+      <button type="submit" class="btn-submit">セミナーを追加・公開する</button>
+    </form>
+  </div>
+</div>
 
 <script>
-'use strict';
+// 設定済みのGAS WebアプリURL
+const GAS_API_URL = 'https://script.google.com/a/macros/pcdepot.jp/s/AKfycbwU2z2rmKXmFt91p5v_cN75mSa3sdkmu3ykdEcR8dNECQDlVZ-88ANVWsCJ4Uba_tZB/exec'; 
 
-/* ═══════════════════════════════════════
-   12項目 知識データ
-   （Excel「AO開校 DCL共通 プランナー品質監査シート202608版」より）
-═══════════════════════════════════════ */
-const auditItems = [
-{
-  id:1, color:'c01',
-  title:"人材獲得競争",
-  aliases:["1番","１番","①","項目1","項目１","アタックリスト","人材獲得","リファラル","獲得競争"],
-  summary:"半年以内を対象期間として、リファラル・FZなどの人脈から、入職に向けた具体的な行動があるかを確認する項目です。",
-  requiredItems:[
-    "アタックリスト（リファラル・関係性・人数などを記載したもの）",
-    "個別の本人との関係性の記載（例：①友人 ②会員のご子息様：大学3年生 など）"
-  ],
-  keyPoints:[
-    "対象は半年以内の行動",
-    "対象はリファラル、FZ。合説・エージェント活動は対象外",
-    "職業普及活動を目的（意図）とした行動実績であること（いつ・会って・話した・アポを取った等）",
-    "たまたま会ったから話した、という偶発的な結果は判定対象外"
-  ],
-  preparation:[
-    "半年以内に接点を持った友人・知人・会員のご家族などをリストアップする",
-    "誰に、いつ、どんな話をしたか記録しておく",
-    "アポにつながった場合は日付も記録する"
-  ],
-  practice:[
-    "日常の会話の中で「教育の仕事」の話題を自然に出す練習をする",
-    "相手との関係性を一言で説明できるようにしておく（例：大学の同期、会員のご子息 など）"
-  ],
-  cautions:[
-    "偶然会って話しただけでは対象外になる点に注意",
-    "「連絡はとっているがアポに至っていない」状態と「1名以上に会って話した」状態は評価が異なる"
-  ],
-  officialCriteria:[
-    "A：1名以上に会って話し、入職に向けて進んでいる。",
-    "B：1名以上に会って話した行動実態がある。",
-    "C：連絡をとる行動は1軒以上あるが、アポに至っていない。",
-    "D：連絡をとる行動がない。"
-  ],
-  faq:[
-    {q:"合同説明会で会った人は対象になりますか？",a:"合説やエージェント経由の活動は、この項目の対象外です。リファラル・FZに絞って記録してください。"},
-    {q:"連絡だけしている段階でも評価されますか？",a:"連絡をとる行動が1軒以上あれば、正式基準ではCの水準にあたります。Aやbを目指すには、実際に会って話すところまで進める必要があります。"}
-  ]
-},
-{
-  id:2, color:'c02',
-  title:"人材品質：ロープレ（指差し・積木・必要性）",
-  aliases:["2番","２番","②","項目2","項目２","ロープレ","積木","積み木","指差し","指さし","必要性ロープレ"],
-  summary:"指差し・積木・必要性の3つを包括したロープレです。面前披露、または録画での確認が対象になります。",
-  requiredItems:[
-    "実際に使用する媒体（開いて指差しできる状態のもの）",
-    "積木の構成（コンパクトに、印象的に。2分程度が目安）",
-    "自身の経験に基づいた必要性のトーク"
-  ],
-  keyPoints:[
-    "①指差し：媒体を開き「ここにこう書いてある通り」と伝えられているか",
-    "②積木：コンパクト・インパクトを意識できているか（2分目安）。難しい話をしすぎていないか",
-    "③必要性：SLS/SLDの内容や構造を説明するのではなく、自身の経験範囲で、自身の言葉で語れているか"
-  ],
-  preparation:[
-    "使用する媒体を実際に手元に用意する",
-    "積木のシナリオを2分以内にまとめる",
-    "自分自身の経験の中から必要性を語れるエピソードを整理する"
-  ],
-  practice:[
-    "実際の媒体と積木を使ってロープレを行う",
-    "ロープレを録画し、指差しと言葉が合っているか確認する",
-    "積木パートが長くなりすぎていないか、時間を測って確認する",
-    "SLS/SLDの構造説明に偏っていないか、必要性を自分の経験として話せているかをチェックする"
-  ],
-  cautions:[
-    "SLS/SLDの内容・構造の説明に終始してしまうと、必要性のポイントが弱くなります",
-    "積木パートが長すぎると、コンパクト・インパクトの評価が下がります"
-  ],
-  officialCriteria:[
-    "A：①～④すべて〇",
-    "B：いずれか3項目〇",
-    "C：いずれか2項目〇",
-    "D：上記以外"
-  ],
-  faq:[
-    {q:"積木の練習方法を教えて",a:"積木パートは2分程度を目安に、コンパクトかつ印象に残る内容にまとめましょう。実際に声に出して時間を測りながら練習すると効果的です。"},
-    {q:"必要性は何を話せばいいですか？",a:"SLS/SLDの構造や制度そのものを説明するのではなく、自身が経験した範囲の中で、自分の言葉で「なぜ必要か」を語ることがポイントです。"}
-  ]
-},
-{
-  id:3, color:'c03',
-  title:"お客様の言葉",
-  aliases:["3番","３番","③","項目3","項目３","お客様の言葉","お客様接点","日常監査"],
-  summary:"全てのお客様接点を対象に、日常の姿としてお客様からどのような言葉をいただけているかを確認する項目です。監査当日だけの話ではありません。",
-  requiredItems:[
-    "お客様接点における実践の積み重ね",
-    "本人自身の認識（監査委員が全てを見切れるわけではないため、必ず本人へのヒアリングも行われる）"
-  ],
-  keyPoints:[
-    "監査当日ではなく、日常の姿で判定される（監査委員が日々観察した結果を反映）",
-    "監査対象期間中、ディスカッション等のお客様接点に監査委員が適宜同席することがある",
-    "「色々教えてもらって助かったよ」だけでなく「これは大切だね、必要だね」というレベルの言葉を引き出せているかがポイント"
-  ],
-  preparation:[
-    "お客様接点の中で、必要性を自然に伝える機会を意識してつくる",
-    "「これは大切だね」「〇〇にも伝えておくよ」といった言葉をいただけた場面を覚えておく"
-  ],
-  practice:[
-    "日々のお客様接点を振り返り、どんな反応をいただけたか記録する習慣をつける",
-    "他のプランナーや周囲のスタッフにも、実践の様子を見てもらう機会を増やす"
-  ],
-  cautions:[
-    "「教えてもらって助かった」という感想だけでは、この項目の到達目標には届きません",
-    "本人の認識だけでなく、周囲からの確認事実も評価に影響します"
-  ],
-  officialCriteria:[
-    "A：本人認識として「これは大切だね、必要だね」「〇〇にも伝えておくよ」と、どなたか・どの場面かで言っていただけた",
-    "B：本人認識では言っていただけなかったが、お客様接点で実践しており、監査委員（または周囲のプランナー）が確認した事実がある",
-    "C：本人認識で言っていただけておらず、お客様接点での実践もない",
-    "D：「必要だね」と言っていただくことが到達目標であることを知らない"
-  ],
-  faq:[
-    {q:"どんな言葉を目指せばいいですか？",a:"「これは大切だね、必要だね」「〇〇にも伝えておくよ」という言葉をお客様からいただけることが目標水準です。単に感謝されるだけでなく、必要性が伝わっている証拠となる言葉を意識してみましょう。"}
-  ]
-},
-{
-  id:4, color:'c04',
-  title:"生活安全品質：Windows10",
-  aliases:["4番","４番","④","項目4","項目４","Windows10","Windows 10","ウィンドウズ10","win10"],
-  summary:"担当ご家族の中で、安全にPCを利用できていない（Windows10のまま等）軒数を把握し、今後の計画を立てられているかを確認する項目です。",
-  requiredItems:[
-    "担当軒数、非安全該当軒数、未確認軒数の把握",
-    "非安全・未確認ご家族への今後の計画・時期・手紙などの具体的なアクション"
-  ],
-  keyPoints:[
-    "お客様をみているか",
-    "担当ご家族の中で安全基準を満たしていない会員様を把握しているか",
-    "安全基準を満たしていない会員様を「〇〇ぱなし」にしていないか",
-    "会員・一般の方へ当社の見解とご協力のお願いを伝えられているか（紙をお預けしている等）"
-  ],
-  preparation:[
-    "担当軒数のうち、非安全（Windows10のまま等）に該当する軒数を確認する",
-    "安全か非安全かそもそも確認できていない軒数も把握する",
-    "非安全・未確認のご家族に対して、いつまでに・どんな手段（架電・手紙・アポ）で対応するか計画を立てる"
-  ],
-  practice:[
-    "担当ご家族のリストを定期的に見直し、Windows10のまま利用しているご家族がいないか棚卸しする",
-    "架電や手紙など、具体的なアクションの記録を残す"
-  ],
-  cautions:[
-    "把握しているだけで放置している状態（ほったらかし）は評価が下がります",
-    "2025年3月の社長方針から経過した期間を踏まえて判定されるため、早めの対応が重要です"
-  ],
-  officialCriteria:[
-    "A：10月時点でWindows10のご家族が10軒未満になることが明白な実績がある",
-    "B：10月時点で10軒以上になるリスクがあるが、そうならないための計画・手紙があり、明確な行動がある",
-    "C・D：具体的な計画や行動が不十分な場合"
-  ],
-  faq:[
-    {q:"何から手をつければいいですか？",a:"まずは担当ご家族の中で、Windows10のまま使っている軒数（非安全該当軒数）と、そもそも確認できていない軒数（未確認軒数）を洗い出すところから始めましょう。そのうえで、いつまでに・どんな手段で対応するかの計画を立てることがポイントです。"}
-  ]
-},
-{
-  id:5, color:'c05',
-  title:"教養携帯要件（仲間獲得）～1204「社長の約束」～",
-  aliases:["5番","５番","⑤","項目5","項目５","社長の約束","1204","仲間獲得1","カンファレンス"],
-  summary:"4月1日カンファレンスで示された一次情報（社長の約束・根拠・必要性・社会変革の姿）を、自分の言葉でインプット・アウトプットできているかを確認する項目です。",
-  requiredItems:[
-    "社長の約束の内容理解",
-    "根拠（社会背景）の理解",
-    "必要性（ゲームチェンジャーとしての教育の位置づけ）の理解",
-    "社会変革の姿（1000万人の学習者構想）の理解"
-  ],
-  keyPoints:[
-    "社長の約束：1000万人の学び・教育～「みんなが先生 みんなが生徒」",
-    "根拠：社会背景（18兆円社会損失／AI共生社会）",
-    "必要性：ゲームチェンジャーは教育（その在処はSL学）",
-    "社会変革の姿：1000万人の学習者（その手段はスマートライフアカデミア）"
-  ],
-  preparation:[
-    "4月1日カンファレンスの一次情報を振り返る",
-    "4つのキーワード（社長の約束・根拠・必要性・社会変革の姿）をそれぞれ自分の言葉で説明できるようにする"
-  ],
-  practice:[
-    "4つのポイントをそれぞれ1〜2分で説明する練習をする",
-    "誰かに聞いてもらい、内容がずれていないか確認する"
-  ],
-  cautions:[
-    "4つのうち抜けがあると評価が下がります。まんべんなく押さえることが大切です"
-  ],
-  officialCriteria:[
-    "A：①～④全て〇",
-    "B：いずれか3項目〇",
-    "C：いずれか2項目〇",
-    "D：上記以外"
-  ],
-  faq:[
-    {q:"5番の4つのポイントを教えて",a:"①社長の約束（1000万人の学び・教育）、②根拠（社会背景：18兆円社会損失／AI共生社会）、③必要性（ゲームチェンジャーは教育）、④社会変革の姿（1000万人の学習者）の4つです。それぞれを自分の言葉で説明できるようにしておきましょう。"}
-  ],
-  references:[
-    {label:"4/1カンファレンス資料", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.01_Structure2030カンファレンス", type:"path"}
-  ]
-},
-{
-  id:6, color:'c06',
-  title:"教養携帯要件（仲間獲得）～構造要約書＋pcd2.0映像～",
-  aliases:["6番","６番","⑥","項目6","項目６","構造要約書","pcd2.0","pcd映像","仲間獲得2"],
-  summary:"仲間獲得の活動時に、構造要約書とpcd2.0映像を手元に携帯できているか、また要約書に自身の書き込みがあるかを確認する項目です。",
-  requiredItems:[
-    "お渡し用の構造要約書（自身の書き込みがある状態が望ましい）",
-    "pcd2.0映像（その場ですぐ見せられる状態）"
-  ],
-  keyPoints:[
-    "会場を手ぶらで歩いていないか",
-    "構造要約書にペン入れ（自分の言葉での書き込み）があるか"
-  ],
-  preparation:[
-    "構造要約書とpcd2.0映像を常に携帯できるようにしておく",
-    "構造要約書には自分の言葉で理解した内容を書き込んでおく"
-  ],
-  practice:[
-    "映像をその場ですぐ再生できるか、事前に手元の環境（スマホ・タブレット等）で確認しておく"
-  ],
-  cautions:[
-    "書き込みのない要約書は、書き込みありの状態より評価が下がります",
-    "どちらか一方しか手元にない状態は、両方揃っている状態より評価が下がります"
-  ],
-  officialCriteria:[
-    "A：お渡し用の構造要約書（ペン入れあり）＋pcd2.0映像（その場で見せられる状態）が手元にある",
-    "B：お渡し用の構造要約書（ペン入れなし）＋pcd2.0映像（その場で見せられる状態）が手元にある",
-    "C：いずれか一方しか手元にない",
-    "D：手元に何もない"
-  ],
-  faq:[
-    {q:"要約書に書き込みがなくても大丈夫ですか？",a:"書き込みがなくても両方携帯していればBの水準にはなりますが、自分の言葉での書き込み（ペン入れ）があるとAの水準を目指せます。マーカー線だけは書き込みとして扱われない点にご注意ください。"}
-  ],
-  references:[
-    {label:"構造要約書（PDF）", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.25_26_スマートライフ学入門\\当日教材_資料\\受講生手元に用意\\基本解説）SLSSLDの定義と構造(要約).pdf", type:"path"},
-    {label:"pcd2.0映像(ジャーナル掲載)", value:"https://api01-platform.stream.co.jp/apiservice/plt3/NTczNA%3d%3d%23ODY3%23280%23168%230%2335E6A0D8A400%23MDoyOjc6YTpmOzEwOzEwOzEw%23/1", type:"url"},
-    {label:"pcd2.0映像（2025年12月4日説明会 通し映像）", value:"https://api01-platform.stream.co.jp/apiservice/plt3/NTczNA%3d%3d%23ODY0%23280%23168%230%2335E6A0D8A400%23MDoyOjc6YTpmOzEwOzEwOzEw%23", type:"url"}
-  ]
-},
-{
-  id:7, color:'c07',
-  title:"SL系資料（勉強証跡確認）",
-  aliases:["7番","７番","⑦","項目7","項目７","SL系資料","スマートライフ学","スマートライフデザイン学","必要論","基本構造要約"],
-  summary:"「スマートライフ学 スマートライフデザイン学（基本構造要約）」と「The necessity of SmartLife Literacy（必要論）」の2資料について、勉強証跡を確認する項目です。",
-  requiredItems:[
-    "スマートライフ学 スマートライフデザイン学（基本構造要約）",
-    "The necessity of SmartLife Literacy（必要論）"
-  ],
-  keyPoints:[
-    "手元にあるかどうか",
-    "本人の書き込み量、付箋、大切にしている様子など"
-  ],
-  preparation:[
-    "2つの資料を手元に用意する",
-    "自分の言葉で理解した内容や気づきを書き込んでおく"
-  ],
-  practice:[
-    "資料を読み返し、重要だと感じた箇所に自分の言葉でコメントを書き加える習慣をつける"
-  ],
-  cautions:[
-    "手元にあるだけで、勉強痕（書き込み）がない場合は評価が下がります",
-    "マーカー線だけでは勉強痕として扱われません"
-  ],
-  officialCriteria:[
-    "A：2つとも手元にあり、勉強濃度十分",
-    "B：2つとも手元にあり、勉強濃度不足感あり",
-    "C：2つとも手元にあるが、いずれも、または一方しか勉強証跡がない／いずれか手元にあり、いずれかに勉強痕がある",
-    "D：いずれも手元にない"
-  ],
-  faq:[
-    {q:"付箋を貼るだけでも評価されますか？",a:"付箋を貼ること自体は「大切にしている様子」の一部として見られますが、評価の中心は自分の言葉による書き込みです。付箋と合わせて、自分なりの理解や気づきをペンで書き込んでおくとよいでしょう。"}
-  ],
-  references:[
-    {label:"スマートライフ学 スマートライフデザイン学（基本構造要約）", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.25_26_スマートライフ学入門\\当日教材_資料\\受講生手元に用意\\基本解説）SLSSLDの定義と構造(要約).pdf", type:"path"},
-    {label:"The necessity of SmartLife Literacy（必要論）", value:"\\\\192.168.101.7\\マスター\\■店舗開示\\総合リレーション\\2026.04.25_26_スマートライフ学入門\\当日教材_資料\\受講生手元に用意\\SLS_SLD必要論）AI共生社会のSLS学必要論(要約).pdf", type:"path"}
-  ]
-},
-{
-  id:8, color:'c08',
-  title:"絶対品質＜プロの定義＞公開情報：書簡を尊重",
-  aliases:["8番","８番","⑧","項目8","項目８","書簡","M410","410","310","315","615","815","525","1027","公開情報"],
-  summary:"書簡の勉強痕を確認する項目です。410、M410、310（新旧別モノ）、315、615、NEW815、525、1027を対象とし、特にM410・410・525の3つは必須です。",
-  requiredItems:[
-    "対象書簡：410、M410、310旧、310新、315、615、NEW815、525、1027（310の新旧は別の書簡として扱う）",
-    "各書簡への自分の言葉による勉強痕（書き込み）"
-  ],
-  keyPoints:[
-    "アカデミア業への転換に伴い、書き込みがアップデートされているか",
-    "書簡ごとの勉強痕の有無、濃度（勉強痕は言葉の書き込み量であり、マーカーではない）",
-    "本人の書き込み量はどうか、マーカーしているだけになっていないか",
-    "※書き込みとペン入れは同義。マーカーとは異なる"
-  ],
-  preparation:[
-    "対象書簡9種類（310は新旧で別扱い）を手元に揃える",
-    "特にM410・410・525の3つを最優先で確認する",
-    "各書簡に自分の言葉で理解・気づき・活用方法などを書き込む"
-  ],
-  practice:[
-    "1冊ずつ読み返し、内容を自分の言葉で要約して書き込む",
-    "アカデミア業への転換内容に合わせて、書き込みが古いままになっていないか見直す"
-  ],
-  cautions:[
-    "マーカーで線を引いただけの状態は「書き込み」「ペン入れ」「勉強跡」には含まれません。原則として、本人がペンで言葉を書き込んだ状態が対象です。"
-  ],
-  officialCriteria:[
-    "左記書簡の勉強痕を全体的に網羅し、書簡ごとに状態を箇条書きにして監査員が総合評価します。",
-    "例：410、525がない、ペン入れなし等→D"
-  ],
-  faq:[
-    {q:"8番は何が必要？",a:"8番は「公開情報：書簡を尊重」です。対象書簡は410・M410・310旧・310新・315・615・NEW815・525・1027の9種類（310は新旧で別の書簡として扱います）。単に所持するだけでなく、各書簡に自分の言葉による勉強跡が必要です。アカデミア業への転換後の内容に合わせて、書き込みがアップデートされているかも確認されます。マーカー線だけは勉強跡として扱われません。特にM410・410・525の3つは必須です。まずはこの3つを優先して確認し、その後にほかの対象書簡を一冊ずつ確認していくとよいでしょう。"},
-    {q:"M410に勉強跡がない場合はどうなりますか？",a:"M410・410・525のうち1つでも勉強跡がない場合、ほかの書簡の状態にかかわらず、正式な評価基準上はD評価になります。これは正式ルールとして明確に定められています。"},
-    {q:"マーカーだけでも勉強跡になりますか？",a:"なりません。蛍光ペンやマーカーで線を引いただけの状態は「書き込み」「ペン入れ」「勉強跡」には含まれません。原則として、本人がペンで言葉を書き込んだ状態（理解したこと・重要だと思う理由・気づき・活用方法・自分の言葉による要約など）が対象です。"}
-  ]
-},
-{
-  id:9, color:'c09',
-  title:"絶対品質＜プロの定義＞公開情報：発刊物を尊重",
-  aliases:["9番","９番","⑨","項目9","項目９","発刊物","SLR","SLJ","安全のしおり","AG","PMB","選手権2026","新聞","新卒訓示","SLCT","AO校入学ガイド","26入案内","媒体"],
-  summary:"自身の媒体の勉強痕・使用状態を確認する項目です。書き込みが必要な媒体と、最新版の所持が必要な媒体に分かれます。",
-  requiredItems:[
-    "【書き込みが必要】SLR、SLJ、安全のしおり、AG、PMB、選手権2026、新聞、新卒訓示",
-    "【最新版の所持が必要】SLCT、AO校入学ガイド、26入案内"
-  ],
-  keyPoints:[
-    "媒体の有無",
-    "本人の書き込み量、付箋、大切にしている様子など"
-  ],
-  preparation:[
-    "書き込みが必要な媒体8種類を手元に揃え、自分の言葉で書き込みを行う",
-    "最新版の所持が必要な媒体3種類を、最新版に更新できているか確認する"
-  ],
-  practice:[
-    "各媒体を定期的に見返し、書き込みを追加・更新する習慣をつける",
-    "媒体を大切に扱っている様子（付箋、保管状態など）も意識する"
-  ],
-  cautions:[
-    "マーカー線だけは書き込みとして扱われません",
-    "「安全のしおりにペン入れがない」「勉強用として媒体を持っていない」などは正式な確認材料になります"
-  ],
-  officialCriteria:[
-    "左記ポイント媒体の勉強痕を全体的に網羅し、媒体ごとに状態を箇条書きにして監査員が総合評価します。",
-    "例：安全のしおりにペン入れなし→C　勉強用として持っていない→D"
-  ],
-  faq:[
-    {q:"9番は？",a:"9番は「公開情報：発刊物を尊重」です。書き込みが必要な媒体はSLR・SLJ・安全のしおり・AG・PMB・選手権2026・新聞・新卒訓示。最新版を所持していればよい媒体はSLCT・AO校入学ガイド・26入案内です。媒体の有無だけでなく、自分の言葉による書き込み・付箋・使用状態・大切に扱っている様子・最新版への更新などが確認されます。マーカー線だけは書き込みとして扱われません。"}
-  ]
-},
-{
-  id:10, color:'c10',
-  title:"FAS手帳",
-  aliases:["10番","１０番","⑩","項目10","項目１０","FAS手帳","FAS図","FCBC","出納帳"],
-  summary:"FAS手帳の現物を確認し、担当ご家族の探究状況や将来像の共有状況などを確認する項目です。",
-  requiredItems:[
-    "FAS手帳現物",
-    "補助ツール（FC・BC、出納帳がわかるもの）",
-    "担当ご家族軒数、記入軒数の把握"
-  ],
-  keyPoints:[
-    "担当ご家族軒数、記入軒数",
-    "FAS図記載状況、ご家族探究（機器・情報等）の記載",
-    "FC・BCの理解度、将来像共有の有無・共有方法",
-    "現有影響力層（例：小～高校教職経験者〇名、医師〇名など）"
-  ],
-  preparation:[
-    "担当ご家族の軒数と、FAS手帳への記入軒数を数える",
-    "ご家族探究（機器・情報等）の記載を進める",
-    "将来像をどう共有しているか整理する"
-  ],
-  practice:[
-    "担当ご家族を定期的に棚卸しし、記入率を上げていく",
-    "現有影響力層（教職経験者や専門職の方など）を把握し、記録する"
-  ],
-  cautions:[
-    "担当軒数に対して記入軒数が著しく少ない場合、評価が下がります（担当軒数の20%以下はBになりづらい）"
-  ],
-  officialCriteria:[
-    "D：手帳未作成",
-    "C：担当軒数に対し著しく記入軒数が少ない（担当軒数の20%以下はBになりづらい）",
-    "B：探求されたご家族軒数記入率が担当軒数に対し20〜40%",
-    "A：探求されたご家族軒数記入率が担当軒数に対し40%以上。棚卸されている。"
-  ],
-  faq:[
-    {q:"FAS手帳は何を書けばいい？",a:"担当ご家族の軒数・記入状況、FAS図の記載、ご家族探究（機器・情報等）の内容、FC・BCの理解度、将来像共有の有無や方法、現有影響力層などを記録します。担当軒数に対する記入率を40%以上にできると、A水準を目指せます。"}
-  ]
-},
-{
-  id:11, color:'c11',
-  title:'VTR SLS必要論 語る「読み書き」',
-  aliases:["11番","１１番","⑪","項目11","項目１１","VTR","必要論","読み書き","そろばん","非識字率","羅針盤","ゲームチェンジャー"],
-  summary:'対象VTR「SLS必要論 語る「読み書き」」（6分52秒）の視聴有無と、内容を自分の言葉でアウトプットできるかを確認する項目です。',
-  requiredItems:[
-    'VTR「SLS必要論 語る「読み書き」」（6分52秒）の視聴',
-    "内容のアウトプット（キーワードを使った説明）"
-  ],
-  keyPoints:[
-    "視聴した・していない",
-    "キーワードがどれくらいアウトプットできるか"
-  ],
-  preparation:[
-    "保管場所：店舗開示 → 総合リレーション → 2026.04.25_26 → スマートライフ学入門 → 当日教材・資料 → 受講生手元に用意 → コード集",
-    "動画を視聴し、内容を理解する"
-  ],
-  practice:[
-    "①動画を見る",
-    "②キーワードを書き出す",
-    "③動画を閉じる",
-    "④内容を1〜2分で説明する",
-    "⑤言えなかった部分を再視聴する",
-    "⑥再度、自分の言葉で話す",
-    "キーワードを並べるだけでなく、意味をつなげて説明できることを目指しましょう"
-  ],
-  cautions:[
-    "視聴しただけでアウトプットができない状態は評価が上がりません",
-    "キーワードを羅列するだけでなく、内容をずらさず表現できることが重要です"
-  ],
-  officialCriteria:[
-    "A：キーワードを複数用い、ズレなく表現できる",
-    "B：キーワード2〜3個程度ながらアウトプットできる",
-    "C：聴いたがインプット、アウトプットいずれも不可",
-    "D：聴いていない"
-  ],
-  faq:[
-    {q:"11番はどうやって対策すればいい？",a:'対象VTRは「SLS必要論 語る「読み書き」」（6分52秒）です。保管場所は 店舗開示→総合リレーション→2026.04.25_26→スマートライフ学入門→当日教材・資料→受講生手元に用意→コード集 です。対策は視聴するだけでなく、内容を自分の言葉でアウトプットできるようにすることです。押さえるキーワードは「そろばんからスマートライフ学へ」「新しい非識字率＝デジタルスキル」「SLS・SLDの社会的役割」「SLS・SLDがないとどうなるか」「学ぶ理由」「羅針盤を正しく動かすための4つの力」「ゲームチェンジャーとして何をすればよいか」です。おすすめ練習は、①動画を見る②キーワードを書き出す③動画を閉じる④内容を1〜2分で説明する⑤言えなかった部分を再視聴する⑥再度自分の言葉で話す、の繰り返しです。'},
-    {q:"11番の練習問題を出して",a:'動画を閉じた状態で、次の問いに自分の言葉で答えてみましょう。「そろばんの時代からスマートライフ学へと、なぜ学びの形が変わってきたのか説明してください」「新しい非識字率とは何を指しますか？」「SLS・SLDが社会的にどんな役割を持っているか説明してください」「もしSLS・SLDがなかったら、社会はどうなると思いますか？」「羅針盤を正しく動かすための4つの力とは何ですか？」。うまく答えられなかった部分は、該当箇所を再視聴して繰り返し練習しましょう。'}
-  ]
-},
-{
-  id:12, color:'c12',
-  title:"AO校COD 講座・BOXの価値説明・枠ロープレ",
-  aliases:["12番","１２番","⑫","項目12","項目１２","COD","AO校COD","枠ロープレ","BOX","三術","VR"],
-  summary:"ロープレ評価（M410・VR・三術・枠）、BOXが商品説明になっていないか、直近1ヶ月の枠軒数実績を確認する項目です。開校予定・開校済BASE・キャンパス（DCL含む）が対象となります。",
-  requiredItems:[
-    "ロープレ評価（410、VR、三術、枠）",
-    "BOXの価値説明（商品説明にならないように）",
-    "直近1ヶ月の枠軒数実績"
-  ],
-  keyPoints:[
-    "事前評価：3術、ご家族背景、必要性、M410、枠",
-    "BOXが商品説明になっていないか",
-    "直近1ヶ月の枠軒数実績"
-  ],
-  preparation:[
-    "ロープレを事前に録画しておく（当日披露できない場合も想定して）",
-    "3術、ご家族背景、必要性、M410、枠の各要素を整理しておく",
-    "BOXの説明が単なる商品スペック説明になっていないか見直す"
-  ],
-  practice:[
-    "ロープレを録画し、拠点監査員に事前評価をしてもらう",
-    "BOXの価値説明を、お客様にとっての意味づけとして語れるように練習する",
-    "枠実績を日々の活動の中で積み重ねる"
-  ],
-  cautions:[
-    "録画をアップしていない、または当日披露できない場合はD評価になります",
-    "評価はロープレの結果で決定します。実践軒数・枠実績は加点要因です"
-  ],
-  officialCriteria:[
-    "評価はロープレの結果で決定。実践軒数、枠実績は加点要因。",
-    "録画アップしていない、または当日披露できない場合、D"
-  ],
-  faq:[
-    {q:"12番で録画を出していない場合は？",a:"録画をアップしていない、または当日披露できない場合は、正式基準上D評価になります。必ず事前に録画を用意しておくか、当日その場で披露できる準備をしておきましょう。"}
-  ]
-}
-];
+// 設定済みのスプレッドシートID
+const SHEET_ID = '1fDeRHnIv-z2dii_ndOCWbep95iuwZDKyZGR7fhgIe9E';
 
-/* ═══════════════════════════════════════
-   キーワード → 項目 マッピング & 意図分類
-═══════════════════════════════════════ */
-const intentKeywords = {
-  overview: ["概要","何","とは","教えて","説明して","分からない","分かりません"],
-  required: ["必要","用意","持ち物","資料","何がいる","揃える","対象"],
-  countermeasure: ["対策","準備","どうしたら","どうすれば","何をすれば","改善"],
-  practice: ["練習","トレーニング","ロープレ練習","鍛え方","アウトプット練習","問題","確認問題"],
-  criteria: ["評価","基準","目安","A評価","B評価","C評価","D評価","判定"],
-  caution: ["注意","気をつけ","ダメ","だめ","禁止","やってはいけない"],
-  writingDef: ["書き込み","ペン入れ","勉強跡","勉強痕","マーカー","蛍光ペン"],
-  storage: ["保管","どこにある","場所","保存先"],
-  coaching: ["指導","教え方","新人","後輩に","チームメンバーに","伝え方"],
-};
-
-function escapeHTML(str){
-  const div=document.createElement('div');
-  div.textContent=str;
-  return div.innerHTML;
+function isPastDate(dateStr) {
+  if (!dateStr || dateStr === '未定' || dateStr === '-') return false;
+  const parsed = Date.parse(dateStr.replace(/年|月/g, '/').replace(/日/g, ''));
+  if (isNaN(parsed)) return false;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return parsed < today.getTime();
 }
 
-function detectItem(q){
-  const lower=q.toLowerCase();
-  let best=null, bestScore=0;
-  auditItems.forEach(item=>{
-    let score=0;
-    item.aliases.forEach(a=>{
-      if(lower.includes(a.toLowerCase())) score+=a.length>=2?3:2;
-    });
-    if(lower.includes(item.title.toLowerCase())) score+=5;
-    if(score>bestScore){bestScore=score;best=item;}
-  });
-  return bestScore>0?best:null;
-}
+let seminars = [];
+let filter = 'all';
 
-function detectIntent(q){
-  const lower=q.toLowerCase();
-  let matched=[];
-  for(const [intent,words] of Object.entries(intentKeywords)){
-    if(words.some(w=>lower.includes(w))) matched.push(intent);
-  }
-  return matched;
-}
-
-/* ═══════════════════════════════════════
-   回答生成
-═══════════════════════════════════════ */
-function generateAnswer(question){
-  const item=detectItem(question);
-  const intents=detectIntent(question);
-
-  // 書き込み・マーカーの定義に関する質問（項目横断）
-  if(intents.includes('writingDef') && !item){
-    return buildWritingDefAnswer();
-  }
-
-  if(!item){
-    return buildFallbackAnswer(question);
-  }
-
-  // 意図に応じて回答を組み立てる
-  let html='';
-
-  if(intents.includes('criteria') && !intents.includes('required') && !intents.includes('countermeasure')){
-    html += sectionHTML('結論', `<p>${item.title}（項目${item.id}）の正式な評価目安は以下の通りです。</p>`);
-    html += criteriaBoxHTML(item);
-    if(item.id===8) html += mustBoxHTML();
-    html += sectionHTML('関連する正式ルール', `<p>この評価目安はExcel監査資料に明記された正式基準です。判定は監査員が総合的に行うため、迷う場合は監査担当者にご確認ください。</p>`);
-    return html;
-  }
-
-  if(intents.includes('practice') && item.practice && item.practice.length){
-    html += sectionHTML('結論', `<p>${item.title}（項目${item.id}）の練習方法をご紹介します。</p>`);
-    html += sectionHTML('具体的な練習方法', listHTML(item.practice));
-    if(item.cautions.length) html += sectionHTML('注意点', listHTML(item.cautions));
-    if(item.id===8) html += mustBoxHTML();
-    return html;
-  }
-
-  if(intents.includes('required') && !intents.includes('countermeasure')){
-    html += sectionHTML('結論', `<p>${item.title}（項目${item.id}）で必要なものは以下の通りです。</p>`);
-    html += sectionHTML('必要なもの・行動', listHTML(item.requiredItems));
-    if(item.keyPoints.length) html += sectionHTML('見るべきポイント', listHTML(item.keyPoints));
-    if(item.id===8) html += mustBoxHTML();
-    if(item.cautions.length) html += sectionHTML('注意点', listHTML(item.cautions));
-    return html;
-  }
-
-  if(intents.includes('coaching')){
-    html += sectionHTML('結論', `<p>${item.title}（項目${item.id}）をチームメンバーに指導する際のポイントです。</p>`);
-    html += sectionHTML('伝えるとよいポイント', listHTML(item.keyPoints));
-    html += sectionHTML('準備してもらうこと', listHTML(item.preparation));
-    if(item.practice.length) html += sectionHTML('一緒に練習するとよいこと', listHTML(item.practice));
-    html += sectionHTML('伝え方のコツ', `<p>「その状態では全くダメです」のような伝え方ではなく、「まずは〇〇から準備すると進めやすいです。特に△△は必須なので、最初に確認しておきましょう」というように、次の一歩を示す伝え方を意識すると、後輩も取り組みやすくなります。</p>`);
-    if(item.id===8) html += mustBoxHTML();
-    return html;
-  }
-
-  // デフォルト：概要＋必要なもの＋対策＋注意点＋正式ルール　の基本形
-  html += sectionHTML('結論', `<p>${item.title}（項目${item.id}）についてご説明します。</p><p style="margin-top:6px">${item.summary}</p>`);
-  html += sectionHTML('必要なもの・行動', listHTML(item.requiredItems));
-  if(item.preparation.length) html += sectionHTML('具体的な対策方法', listHTML(item.preparation));
-  if(item.references && item.references.length) html += sectionHTML('参考資料', referencesHTML(item.references));
-  if(item.cautions.length) html += sectionHTML('注意点', listHTML(item.cautions));
-  if(item.id===8) html += mustBoxHTML();
-  html += sectionHTML('関連する正式ルール', criteriaBoxHTML(item));
-
-  return html;
-}
-
-function sectionHTML(title, bodyHTML){
-  return `<h4>${title}</h4><div>${bodyHTML}</div>`;
-}
-function listHTML(arr){
-  return `<ul>${arr.map(x=>`<li>${x}</li>`).join('')}</ul>`;
-}
-function criteriaBoxHTML(item){
-  return `<div class="rule-box">${item.officialCriteria.map(x=>`${x}`).join('<br>')}</div>`;
-}
-function mustBoxHTML(){
-  return `<div class="must-box">⚠ 正式ルール：M410・410・525のうち1つでも勉強跡がない場合は、ほかの書簡の状態にかかわらず、正式な評価基準上はD評価になります。マーカー線だけでは勉強跡に含まれず、自分の言葉によるペンでの書き込みが必要です。</div>`;
-}
-function referencesHTML(refs){
-  return refs.map(r=>{
-    if(r.type==='url'){
-      return `<div style="margin-bottom:6px;padding:8px 10px;background:#f0f6ff;border-radius:6px;font-size:11px"><strong>${escapeHTML(r.label)}</strong><br><a href="${escapeHTML(r.value)}" target="_blank" rel="noopener noreferrer" style="color:var(--c01);word-break:break-all">${escapeHTML(r.value)} ↗</a></div>`;
-    }
-    return `<div style="margin-bottom:6px;padding:8px 10px;background:#f8faff;border-radius:6px;font-size:11px"><strong>${escapeHTML(r.label)}</strong><br><span style="color:var(--gray);word-break:break-all;font-family:'DM Mono',monospace;font-size:9px">${escapeHTML(r.value)}</span></div>`;
-  }).join('') + `<div style="font-size:9px;color:var(--gray);margin-top:4px">※社内共有フォルダのパスは、社内ネットワークに接続した状態でアクセスしてください。</div>`;
-}
-
-function buildWritingDefAnswer(){
-  let html='';
-  html += sectionHTML('結論', `<p>書き込み（勉強跡・勉強痕・ペン入れ）とマーカーは、明確に区別されています。</p>`);
-  html += sectionHTML('書き込みとして扱われるもの', listHTML([
-    "自分が理解したことを言葉で書いたもの",
-    "重要だと思う理由を書いたもの",
-    "気づいたことを書いたもの",
-    "現場でどう活用するかを書いたもの",
-    "自分の言葉による要約"
-  ]));
-  html += `<div class="must-box">⚠ 蛍光ペンやマーカーで線を引いただけの状態は、「書き込み」「ペン入れ」「勉強跡」には含まれません。原則として、本人がペンで言葉を書き込んだ状態が対象です。</div>`;
-  html += sectionHTML('関連する項目', `<p>この定義は、特に項目7（SL系資料）・項目8（書簡）・項目9（発刊物）で重要になります。それぞれの項目カードから詳細を確認できます。</p>`);
-  return html;
-}
-
-function buildFallbackAnswer(question){
-  let html='';
-  html += sectionHTML('結論', `<p>申し訳ございません。ご質問の内容から、該当する項目を特定できませんでした。</p>`);
-  html += sectionHTML('もう少し詳しく教えてください', `<p>項目番号や資料名が分かると、より具体的に回答できます。「8番の書簡について」「9番の媒体を教えて」のように質問してみてください。</p>`);
-  html += sectionHTML('どの内容を知りたいですか？', listHTML([
-    "必要な資料",
-    "日頃の対策",
-    "練習方法",
-    "評価基準",
-    "注意点"
-  ]));
-  html += sectionHTML('12項目一覧から探す', `<p>下の「12項目から学ぶ」セクションから、該当しそうな項目のカードを開いてみてください。</p>`);
-  return html;
-}
-
-/* ═══════════════════════════════════════
-   チャット履歴（localStorage）
-═══════════════════════════════════════ */
-const STORAGE_KEY='qc_coach_history';
-let history=[];
-
-function loadHistory(){
-  try{
-    const saved=localStorage.getItem(STORAGE_KEY);
-    history=saved?JSON.parse(saved):[];
-  }catch(e){history=[];}
-  renderHistory();
-}
-function saveHistory(){
-  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(history)); }catch(e){}
-}
-function clearHistory(){
-  if(!confirm('会話履歴をすべて削除しますか？')) return;
-  history=[];
-  saveHistory();
-  renderHistory();
-}
-
-function renderHistory(){
-  const area=document.getElementById('chat-area');
-  area.innerHTML=history.map((h,idx)=>`
-    <div class="chat-msg">
-      <div class="chat-q">${escapeHTML(h.q)}</div>
-      <div class="chat-a">${h.aHTML}
-        <div class="chat-actions">
-          <button class="btn btn-outline btn-sm" onclick="copyAnswer(${idx})">📋 コピー</button>
-          ${h.itemId?`<button class="btn btn-outline btn-sm" onclick="openModalById(${h.itemId})">🔍 関連項目を開く</button>`:''}
-        </div>
-        <div class="chat-time">${h.time}</div>
-      </div>
-    </div>
-  `).join('');
-  area.scrollTop=area.scrollHeight;
-}
-
-function copyAnswer(idx){
-  const tmp=document.createElement('div');
-  tmp.innerHTML=history[idx].aHTML;
-  const text=tmp.textContent||tmp.innerText||'';
-  navigator.clipboard.writeText(text).then(()=>alert('回答をコピーしました。')).catch(()=>alert('コピーに失敗しました。'));
-}
-
-/* ═══════════════════════════════════════
-   質問送信
-═══════════════════════════════════════ */
-const questionInput=document.getElementById('question-input');
-const btnAsk=document.getElementById('btn-ask');
-
-function submitQuestion(){
-  const q=questionInput.value.trim();
-  if(!q) return;
-  const item=detectItem(q);
-  const aHTML=generateAnswer(q);
-  const now=new Date();
-  const p=v=>String(v).padStart(2,'0');
-  const time=`${now.getFullYear()}.${p(now.getMonth()+1)}.${p(now.getDate())} ${p(now.getHours())}:${p(now.getMinutes())}`;
-  history.push({q, aHTML, itemId:item?item.id:null, time});
-  saveHistory();
-  renderHistory();
-  questionInput.value='';
-}
-
-btnAsk.addEventListener('click', submitQuestion);
-questionInput.addEventListener('keydown', e=>{
-  if(e.key==='Enter' && !e.shiftKey){
-    e.preventDefault();
-    submitQuestion();
-  }
-});
-
-/* ═══════════════════════════════════════
-   質問例チップ
-═══════════════════════════════════════ */
-const sampleChips=[
-  "8番は何が必要？","9番の媒体を教えて","11番の対策方法は？",
-  "2番の練習方法は？","マーカーだけでも大丈夫？","12番の注意点は？"
-];
-document.getElementById('chip-row').innerHTML=sampleChips.map(c=>
-  `<div class="chip" onclick="document.getElementById('question-input').value='${c}';document.getElementById('question-input').focus()">${c}</div>`
-).join('');
-
-/* ═══════════════════════════════════════
-   項目カード生成
-═══════════════════════════════════════ */
-function renderItemGrid(){
-  const grid=document.getElementById('item-grid');
-  grid.innerHTML=auditItems.map(item=>`
-    <div class="item-card" style="--accent:var(--${item.color})">
-      <div class="item-card-body">
-        <div class="item-num">${String(item.id).padStart(2,'0')}</div>
-        <div class="item-title">${item.title}</div>
-        <div class="item-summary">${item.summary}</div>
-      </div>
-      <div class="item-card-footer">
-        <button class="btn btn-outline btn-sm" style="flex:1" onclick="openModalById(${item.id})">詳しく見る</button>
-        <button class="btn btn-primary btn-sm" style="flex:1" onclick="consultAboutItem(${item.id})">相談する</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function consultAboutItem(id){
-  const item=auditItems.find(i=>i.id===id);
-  questionInput.value=`項目${id}について相談したいです。`;
-  document.getElementById('consult-area').scrollIntoView({behavior:'smooth',block:'start'});
-  questionInput.focus();
-}
-
-/* ═══════════════════════════════════════
-   モーダル
-═══════════════════════════════════════ */
-function openModalById(id){
-  const item=auditItems.find(i=>i.id===id);
-  if(!item) return;
-  document.getElementById('modal-num').textContent=String(item.id).padStart(2,'0');
-  document.getElementById('modal-num').style.color=`var(--${item.color})`;
-  document.getElementById('modal-title').textContent=item.title;
-
-  let body='';
-  body += `<div class="modal-sec"><div class="modal-sec-title">// 概要</div><div class="modal-sec-body">${item.summary}</div></div>`;
-  body += `<div class="modal-sec"><div class="modal-sec-title">// 必要な資料・準備</div><div class="modal-sec-body">${listHTML(item.requiredItems)}</div></div>`;
-  body += `<div class="modal-sec"><div class="modal-sec-title">// 見るべきポイント</div><div class="modal-sec-body">${listHTML(item.keyPoints)}</div></div>`;
-  if(item.preparation.length) body += `<div class="modal-sec"><div class="modal-sec-title">// 日頃の対策</div><div class="modal-sec-body">${listHTML(item.preparation)}</div></div>`;
-  if(item.practice.length) body += `<div class="modal-sec"><div class="modal-sec-title">// 練習方法</div><div class="modal-sec-body">${listHTML(item.practice)}</div></div>`;
-  if(item.cautions.length) body += `<div class="modal-sec"><div class="modal-sec-title">// 注意点</div><div class="modal-sec-body">${listHTML(item.cautions)}</div></div>`;
-  if(item.id===8) body += `<div class="modal-sec"><div class="modal-sec-body">${mustBoxHTML()}</div></div>`;
-  body += `<div class="modal-sec"><div class="modal-sec-title">// 正式な評価目安（Excel記載）</div><div class="modal-sec-body"><div class="modal-must" style="background:#f8faff;border-left-color:var(--${item.color});color:var(--navy);font-weight:400">${item.officialCriteria.join('<br>')}</div></div></div>`;
-  if(item.faq && item.faq.length){
-    body += `<div class="modal-sec"><div class="modal-sec-title">// よくある質問</div><div class="modal-sec-body">`;
-    item.faq.forEach(f=>{
-      body += `<div style="margin-bottom:10px"><div style="font-weight:800;color:var(--navy);margin-bottom:3px">Q. ${f.q}</div><div style="color:#4a6080">A. ${f.a}</div></div>`;
-    });
-    body += `</div></div>`;
-  }
-  if(item.references && item.references.length){
-    body += `<div class="modal-sec"><div class="modal-sec-title">// 参考資料</div><div class="modal-sec-body">`;
-    item.references.forEach(r=>{
-      if(r.type==='url'){
-        body += `<div style="margin-bottom:8px;padding:10px 12px;background:#f0f6ff;border-radius:8px;font-size:12px"><div style="font-weight:700;color:var(--navy);margin-bottom:4px">${escapeHTML(r.label)}</div><a href="${escapeHTML(r.value)}" target="_blank" rel="noopener noreferrer" style="color:var(--c01);word-break:break-all">${escapeHTML(r.value)} ↗</a></div>`;
-      }else{
-        body += `<div style="margin-bottom:8px;padding:10px 12px;background:#f8faff;border-radius:8px;font-size:12px"><div style="font-weight:700;color:var(--navy);margin-bottom:4px">${escapeHTML(r.label)}</div><div style="color:var(--gray);word-break:break-all;font-family:'DM Mono',monospace;font-size:10px">${escapeHTML(r.value)}</div></div>`;
+function fetchSpreadsheetData() {
+  const readEndpoint = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&_t=${Date.now()}`;
+  
+  fetch(readEndpoint)
+    .then(res => res.text())
+    .then(text => {
+      const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\);/);
+      if (match && match[1]) {
+        const parsed = JSON.parse(match[1]);
+        const rows = parsed.table.rows;
+        const fetched = [];
+        for (let i = 0; i < rows.length; i++) {
+          const r = rows[i];
+          if (!r.c || !r.c[0]) continue;
+          fetched.push({
+            name: r.c[0] ? r.c[0].v : '',
+            date: r.c[1] ? r.c[1].v : '未定',
+            dl1: r.c[2] ? r.c[2].v : '-',
+            dl2: r.c[3] ? r.c[3].v : '-',
+            target: r.c[4] ? r.c[4].v : '全顧客',
+            content: r.c[5] ? r.c[5].v : '',
+            ideal: r.c[6] ? r.c[6].v : '',
+            status: r.c[7] ? r.c[7].v : '企画中',
+            url: r.c[8] ? r.c[8].v : ''
+          });
+        }
+        if (fetched.length > 0) {
+          seminars = fetched;
+          render();
+        }
       }
+    }).catch(err => {
+      console.error('スプレッドシートの取得に失敗しました。共有設定をご確認ください。', err);
     });
-    body += `<div style="font-size:10px;color:var(--gray);margin-top:6px">※社内共有フォルダのパスは、社内ネットワークに接続した状態でファイルエクスプローラー等から直接アクセスしてください。</div>`;
-    body += `</div></div>`;
+}
+
+function render() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  const filtered = seminars.filter(s => {
+    if (s.status === '非表示' || s.status === '終了') return false;
+    if (isPastDate(s.date)) return false;
+    const matchF = filter === 'all' || s.status === filter;
+    const matchQ = s.name.toLowerCase().includes(q) || s.content.toLowerCase().includes(q) || s.ideal.toLowerCase().includes(q);
+    return matchF && matchQ;
+  });
+
+  const activeSeminars = seminars.filter(s => s.status !== '非表示' && s.status !== '終了' && !isPastDate(s.date));
+  document.getElementById('st-tot').innerText = activeSeminars.length;
+  document.getElementById('st-act').innerText = activeSeminars.filter(s => s.status === '案内中').length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted);font-weight:700">現在ご案内可能なセミナーはありません。</div>';
+    return;
   }
 
-  document.getElementById('modal-body').innerHTML=body;
-  document.getElementById('modal-consult-btn').onclick=()=>{ closeModal(); consultAboutItem(item.id); };
-  document.getElementById('modal-overlay').classList.add('open');
-}
-function closeModal(){
-  document.getElementById('modal-overlay').classList.remove('open');
-}
-document.addEventListener('keydown', e=>{
-  if(e.key==='Escape') closeModal();
-});
+  filtered.forEach((s, idx) => {
+    let bClass = 'badge-plan';
+    if(s.status === '案内中') bClass = 'badge-active';
+    if(s.status === '準備中') bClass = 'badge-prep';
 
-/* ═══════════════════════════════════════
-   スクロールトップボタン
-═══════════════════════════════════════ */
-window.addEventListener('scroll', ()=>{
-  document.getElementById('scroll-top').classList.toggle('show', window.scrollY>400);
-});
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-hdr">
+        <h3 class="card-title">${escapeHtml(s.name)}</h3>
+        <span class="badge ${bClass}">${s.status}</span>
+      </div>
+      <div class="info-table">
+        <div class="info-item"><span>📅 開催日</span><strong>${escapeHtml(s.date)}</strong></div>
+        <div class="info-item"><span>👥 対象</span><strong>${escapeHtml(s.target)}</strong></div>
+      </div>
+      <div class="ideal-box">
+        <strong>💡 こんな方へご案内！</strong>
+        ${escapeHtml(s.ideal)}
+      </div>
+      <div class="card-ftr">
+        <div class="btn-group-left">
+          <button class="btn-sec" onclick="openDetailModal(${idx})">詳細 🔍</button>
+          <button class="btn-reserve" onclick="openReserveModal('${escapeHtml(s.name)}')">受付 📝</button>
+        </div>
+        ${s.url ? `<a href="${s.url}" target="_blank" class="btn-primary">案内URL ↗</a>` : '<span style="font-size:11px;color:var(--text-muted)">準備中</span>'}
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
 
-/* ═══════════════════════════════════════
-   初期化
-═══════════════════════════════════════ */
-renderItemGrid();
-loadHistory();
+function setFilter(f, el) {
+  filter = f;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function openDetailModal(idx) {
+  const s = seminars[idx];
+  document.getElementById('m-title').innerText = s.name;
+  document.getElementById('m-body').innerHTML = `
+    <p><strong>📅 開催日時:</strong> ${s.date}</p>
+    <p><strong>⏳ 締め切り:</strong> 1次 ${s.dl1} / 2次 ${s.dl2}</p>
+    <p><strong>👥 対象者:</strong> ${s.target}</p>
+    <div style="background:#faf8f5;padding:12px;border-radius:10px;margin:12px 0;border:1px solid var(--border)">
+      <strong>【内容】</strong><br>${s.content}
+    </div>
+    <div style="background:#fff3e0;padding:12px;border-radius:10px;color:#5c3810;">
+      <strong>【おすすめのご案内対象】</strong><br>${s.ideal}
+    </div>
+  `;
+  document.getElementById('m-reserve-btn').onclick = () => {
+    closeModal('detailModal');
+    openReserveModal(s.name);
+  };
+  document.getElementById('m-url').innerHTML = s.url ? `<a href="${s.url}" target="_blank" class="btn-primary">案内ページを開く ↗</a>` : '';
+  openModal('detailModal');
+}
+
+function openReserveModal(seminarName) {
+  document.getElementById('res-seminar').value = seminarName;
+  openModal('reserveModal');
+}
+
+function openAddSeminarModal() { openModal('addSeminarModal'); }
+
+function submitReserve(e) {
+  e.preventDefault();
+  const payload = {
+    action: 'reserve',
+    seminar: document.getElementById('res-seminar').value,
+    memberId: document.getElementById('res-member-id').value,
+    lastName: document.getElementById('res-last-name').value,
+    firstName: document.getElementById('res-first-name').value,
+    relation: document.getElementById('res-relation').value,
+    status: document.getElementById('res-status').value,
+    note: document.getElementById('res-note').value
+  };
+
+  if(GAS_API_URL) {
+    fetch(GAS_API_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
+  }
+
+  alert(`「${payload.seminar}」への受付枠を確保しました！`);
+  document.getElementById('reserveForm').reset();
+  closeModal('reserveModal');
+}
+
+function submitNewSeminar(e) {
+  e.preventDefault();
+  const newSeminar = {
+    action: 'addSeminar',
+    name: document.getElementById('add-name').value,
+    date: document.getElementById('add-date').value,
+    dl1: document.getElementById('add-dl1').value || '-',
+    dl2: document.getElementById('add-dl2').value || '-',
+    target: document.getElementById('add-target').value,
+    content: document.getElementById('add-content').value,
+    ideal: document.getElementById('add-ideal').value,
+    status: document.getElementById('add-status').value,
+    url: document.getElementById('add-url').value || ''
+  };
+
+  seminars.unshift(newSeminar);
+  render();
+
+  if(GAS_API_URL) {
+    fetch(GAS_API_URL, { method: 'POST', body: JSON.stringify(newSeminar), mode: 'no-cors' });
+  }
+
+  alert('新しいセミナーを登録・公開しました！');
+  document.getElementById('addSeminarForm').reset();
+  closeModal('addSeminarModal');
+}
+
+function escapeHtml(str) {
+  if(!str) return '';
+  return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
+
+document.getElementById('searchInput').addEventListener('input', render);
+
+fetchSpreadsheetData();
 </script>
 </body>
 </html>
