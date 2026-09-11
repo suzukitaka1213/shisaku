@@ -381,7 +381,7 @@ function fetchSpreadsheetData() {
         }
       }
     }).catch(err => {
-      console.error('スプレッドシートの取得に失敗しました。共有設定をご確認ください。', err);
+      console.error('スプレッドシートの取得に失敗しました。', err);
     });
 }
 
@@ -478,6 +478,14 @@ function openReserveModal(seminarName) {
 
 function openAddSeminarModal() { openModal('addSeminarModal'); }
 
+// 確実にデータを届ける「URLパラメータ型送信」関数
+function sendDataToGAS(payload) {
+  if (!GAS_API_URL) return;
+  const params = new URLSearchParams(payload).toString();
+  const targetUrl = `${GAS_API_URL}?${params}`;
+  fetch(targetUrl, { method: 'GET', mode: 'no-cors' }).catch(err => console.error('送信エラー:', err));
+}
+
 function submitReserve(e) {
   e.preventDefault();
   const payload = {
@@ -491,9 +499,7 @@ function submitReserve(e) {
     note: document.getElementById('res-note').value
   };
 
-  if(GAS_API_URL) {
-    fetch(GAS_API_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
-  }
+  sendDataToGAS(payload);
 
   alert(`「${payload.seminar}」への受付枠を確保しました！`);
   document.getElementById('reserveForm').reset();
@@ -518,9 +524,7 @@ function submitNewSeminar(e) {
   seminars.unshift(newSeminar);
   render();
 
-  if(GAS_API_URL) {
-    fetch(GAS_API_URL, { method: 'POST', body: JSON.stringify(newSeminar), mode: 'no-cors' });
-  }
+  sendDataToGAS(newSeminar);
 
   alert('新しいセミナーを登録・公開しました！');
   document.getElementById('addSeminarForm').reset();
